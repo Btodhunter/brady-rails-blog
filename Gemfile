@@ -5,6 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Bootstrap framework for pretty CSS
+gem 'bootstrap', '~> 4.0.0.alpha3'
+
+# CKEditor for allowing editing of post
+gem 'ckeditor'
+
+# Devise for Authentication
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'

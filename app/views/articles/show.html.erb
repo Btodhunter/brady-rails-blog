@@ -1,19 +1,37 @@
-<h1><%= @article.title %></h1>
-<p>
-  Tags:
-  <% @article.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
-  <% end %>
-</p>
-<p>
-  <% if @article.image.exists? %>
-    <%= image_tag @article.image.url %>
-  <% end %>
-</p>
-<p><%= @article.body %></p>
-<h3>Comments (<%= @article.comments.size %>)</h3>
-<%= render partial: 'articles/comment', collection: @article.comments %>
-<%= render partial: 'comments/form' %>
-<%= link_to "<< Back to Articles List", articles_path %>
-<%= link_to "delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
-<%= link_to "edit", edit_article_path(@article) %>
+  <div class="col-sm-12 col-xs-12 blog-content">
+    <div class="card">
+      <div class="card-block">
+      <h1 class="cart-title"><%= @article.title %></h1>
+        <h6><%= @article.created_at.strftime('%b %d, %Y') %></h6>
+      <br/>
+        <div class="card-img-top">
+          <% if @article.image.exists? %>
+            <%= image_tag @article.image.url %>
+          <% end %>
+        </div>
+      <br/>
+        <div class="card-text"><%= raw @article.body %></div>
+        <br/>
+        <div>
+          Tags:
+          <% @article.tags.each do |tag| %>
+              <%= link_to tag.name, tag_path(tag) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <h3>Comments (<%= @article.comments.size %>)</h3>
+    <hr/>
+    <%= render partial: 'articles/comment', collection: @article.comments %>
+    <div class="card">
+      <div class="card-block">
+    <%= render partial: 'comments/form' %>
+      </div>
+    </div>
+    <br/>
+    <% if admin_signed_in? %>
+      <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"}, class: "btn btn-danger" %>
+      <%= link_to "Edit", edit_article_path(@article), class: "btn btn-default" %>
+    <% end %>
+  </div>

@@ -1,0 +1,27 @@
+<div class="container-fluid">
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+  <div class="navbar-header">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <a class="navbar-brand" href="#">Brady's Rails Blog</a>
+  </div>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <%= link_to 'Home', root_path, class: "nav-link" %>
+        </li>
+        <% if admin_signed_in? %>
+            <!--This block is only visible to signed in admins -->
+            <li class="nav-item"><%= link_to 'New Post', new_article_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to 'My Account', edit_admin_registration_path, class: "nav-link"  %></li>
+            <li class="nav-item"><%= link_to 'Logout', destroy_admin_session_path, :method => :delete, class: "nav-link" %></li>
+            <!-- The block ends here -->
+        <% else %>
+            <li><%= link_to 'Login', new_admin_session_path, class: "nav-link" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br/>
