@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment.article_id = params[:article_id]
     if user_signed_in?
       @comment.user_id = current_user.id
-      @comment.author_name = current_user.email
+      @comment.author_name = current_user.first_name
     end
 
     @comment.save

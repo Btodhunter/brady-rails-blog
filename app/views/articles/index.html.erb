@@ -1,23 +1,21 @@
-<div class="container-fluid">
-    <div class="col-sm-12 col-sm-offset-1 col-xs-12 blog-content">
-      <% @articles.sort_by(&:created_at).reverse.each do |article| %>
-        <div class="col-xs-12">
-          <div class="text-center">
-            <h2><%= link_to article.title, article_path(article) %></h2>
-            <h6><%= article.created_at.strftime('%b %d, %Y') %></h6>
-          </div>
-          <div class="text-center">
-            <%= raw(article.body).truncate(358) %>
-          </div>
+<div class="col blog-content">
+  <% @articles.sort_by(&:created_at).reverse.each do |article| %>
+    <div class="col-xs-12">
+      <div class="text-center">
+        <h2><%= link_to article.title, article_path(article) %></h2>
+        <h6><%= article.created_at.strftime('%b %d, %Y') %></h6>
+      </div>
+      <div class="text-center">
+        <%= raw(article.body).truncate(358) %>
+      </div>
 
-          <div class="text-center">
-            <%= link_to "READ MORE", article_path(article) %>
-          </div>
-          <br>
-        </div>
-          <hr/>
-      <% end %>
-      <%= link_to "Create New Article", new_article_path(), class: "btn btn-primary btn-block", role: "button" %>
+      <div class="text-center">
+        <%= link_to "READ MORE", article_path(article) %>
+      </div>
+      <br>
     </div>
+      <hr/>
+  <% end %>
+  <%= link_to "Create New Article", new_article_path(), class: "btn btn-primary btn-block", role: "button" %>
 </div>
 <br/>

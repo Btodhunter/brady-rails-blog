@@ -1,6 +1,6 @@
-<h3>Post a Comment</h3>
 <% if user_signed_in? %>
-  <%= form_for [ @article, @comment ] do |f| %>
+    <h3>Post a Comment</h3>
+    <%= form_for [ @article, @comment ] do |f| %>
     <div class="form-group">
       <%= f.label :body, "Your Comment" %><br/>
       <%= f.text_area :body, class: "form-control" %>
@@ -8,5 +8,6 @@
   <button type="submit" class="btn btn-primary btn-block">Post Comment</button>
   <% end %>
 <% elsif ! user_signed_in? %>
-   <%= link_to "Log In", new_user_session_path, class: "btn btn-primary btn-block" %>
+    <h3>Log in to Comment</h3>
+    <%= link_to "Log In", new_user_session_path, class: "btn btn-primary btn-block" %>
 <% end %>

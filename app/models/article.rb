@@ -8,6 +8,7 @@ class Article < ApplicationRecord
   validates_attachment_content_type :image, content_type: %w(image/jpg image/jpeg image/png)
   validates :title, presence: true, length: {maximum: 140}
   validates :body, presence: true
+  validates :tags, length: {maximum: 140}
 
   def tag_list
     tags.collect(&:name).join(', ')

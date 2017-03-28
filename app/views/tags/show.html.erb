@@ -1,10 +1,9 @@
-<h1>Articles Tagged with <%= @tag.name %></h1>
+<div class="col">
+  <h1>Articles Tagged with <%= @tag.name %></h1>
 
-<ul id="articles">
-  <% @tag.articles.each do |article| %>
-    <li><%= link_to article.title, article_path(article) %></li>
-  <% end %>
-</ul>
-<ul id="articles">
-  <li><%= link_to "<< Back to Articles List", articles_path %></li>
-</ul>
+  <ul id="articles">
+    <% @tag.articles.each do |article| %>
+      <li><%= link_to article.title, article_path(article) %></li>
+    <% end %>
+  </ul>
+</div>

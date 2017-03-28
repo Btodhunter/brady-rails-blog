@@ -1,14 +1,13 @@
-<div class="container-fluid">
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+<nav class="navbar sticky-top navbar-toggleable-md navbar-inverse bg-primary">
   <div class="navbar-header">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-    <a class="navbar-brand" href="#">Brady's Rails Blog</a>
+    <a class="navbar-brand" href="#">Brady's Blog on Rails</a>
   </div>
   <div class="collapse navbar-collapse" id="navbarToggler">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
+      <li class="nav-item">
         <%= link_to 'Home', root_path, class: "nav-link" %>
       </li>
       <% if user_signed_in? %>
@@ -23,5 +22,4 @@
     </ul>
   </div>
 </nav>
-</div>
 <br/>

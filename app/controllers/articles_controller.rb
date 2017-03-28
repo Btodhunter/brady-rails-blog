@@ -12,6 +12,10 @@ class ArticlesController < ApplicationController
     @article = find_article
     @comment = Comment.new
     @comment.article_id = @article.id
+    @article_author = find_article_user.first_name
+    if user_signed_in?
+      @current_user = current_user
+    end
   end
 
   # Defines a new article
@@ -27,12 +31,11 @@ class ArticlesController < ApplicationController
     end
     if @article.save
       flash[:notice] = "Article '#{@article.title}' Created!"
+      redirect_to article_path(@article)
     else
       flash.alert = "Error creating post!"
       render :new
     end
-
-    redirect_to article_path(@article)
   end
 
   # Deletes an article
@@ -65,5 +68,9 @@ class ArticlesController < ApplicationController
   # Find specified article
   def find_article
     @article = Article.find(params[:id])
+  end
+
+  def find_article_user
+    @user = User.find(@article.user_id)
   end
 end

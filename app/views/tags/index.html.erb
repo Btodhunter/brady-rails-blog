@@ -1,13 +1,12 @@
-<h1>All Tags</h1>
+<div class="col">
+  <h1>All Tags</h1>
 
-<ul id="articles">
-  <% @tags.each do |tag| %>
-      <li>
-        <%= link_to tag.name, tag_path(tag), class: 'tag_name' %>
-      </li>
-  <% end %>
-</ul>
-<br/>
-<ul id="articles">
-  <li><%= link_to "<< Back to Articles List", articles_path %></li>
-</ul>
+  <ul id="articles">
+    <% @tags.each do |tag| %>
+        <li>
+          <%= link_to tag.name, tag_path(tag), class: 'tag_name' %>
+        </li>
+    <% end %>
+  </ul>
+  <br/>
+</div>
