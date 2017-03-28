@@ -26,11 +26,11 @@
     <%= render partial: 'articles/comment', collection: @article.comments %>
     <div class="card">
       <div class="card-block">
-    <%= render partial: 'comments/form' %>
+        <%= render partial: 'comments/form' %>
       </div>
     </div>
     <br/>
-    <% if admin_signed_in? %>
+    <% if user_signed_in? && @article.user_id == current_user.id %>
       <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"}, class: "btn btn-danger" %>
       <%= link_to "Edit", edit_article_path(@article), class: "btn btn-default" %>
     <% end %>

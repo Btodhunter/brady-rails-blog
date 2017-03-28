@@ -1,12 +1,12 @@
 <h3>Post a Comment</h3>
-<%= form_for [ @article, @comment ] do |f| %>
-  <div class="form-group">
-    <%= f.label :author_name, "Your Name" %><br/>
-    <%= f.text_field :author_name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :body, "Your Comment" %><br/>
-    <%= f.text_area :body, class: "form-control" %>
-  </div>
+<% if user_signed_in? %>
+  <%= form_for [ @article, @comment ] do |f| %>
+    <div class="form-group">
+      <%= f.label :body, "Your Comment" %><br/>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
   <button type="submit" class="btn btn-primary btn-block">Post Comment</button>
+  <% end %>
+<% elsif ! user_signed_in? %>
+   <%= link_to "Log In", new_user_session_path, class: "btn btn-primary btn-block" %>
 <% end %>

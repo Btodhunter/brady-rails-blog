@@ -21,11 +21,12 @@
         <div class="form-group">
           <%= f.label :image, "Attach a New Image" %><br/>
           <%= f.file_field :image, class: "form-control-file" %>
+        </div>
       <% else %>
         <div class="form-group">
           <%= f.label :image, "Attach an Image" %><br/>
           <%= f.file_field :image, class: "form-control-file" %>
-      <% end %>
         </div>
+      <% end %>
     <button type="submit" class="btn btn-primary btn-block">Create Article</button>
 <% end %>

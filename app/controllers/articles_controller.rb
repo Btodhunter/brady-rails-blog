@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   include ArticlesHelper
-  before_action :authenticate_admin!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # Renders all articles
   def index
@@ -19,9 +19,12 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
-  # Renders the new article page
+  # Renders the create article page
   def create
     @article = Article.new(article_params)
+    if user_signed_in?
+      @article.user_id = current_user.id
+    end
     if @article.save
       flash[:notice] = "Article '#{@article.title}' Created!"
     else

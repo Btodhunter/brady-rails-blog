@@ -2,7 +2,7 @@
   <div class="col-sm-offset-4 col-sm-4 col-xs-12">
   <h2 class="text-center">Log in</h2>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form"}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form" }) do |f| %>
     <div class="form-group">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, class: "form-control" %>
@@ -23,6 +23,6 @@
       <%= f.submit "Log in", class: "btn btn-primary btn-lg" %>
   <% end %>
 
-  <%= render "admins/shared/links" %>
+  <%= render "users/shared/links" %>
   </div>
 </div>
