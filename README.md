@@ -1,18 +1,10 @@
 # README
-Ruby v2.3
 
-* System dependencies
+A simple Ruby on Rails blog
 
-* Configuration
+Dependencies:
+ * Ruby v2.3
+ * Rails v5.0.2
+ * ImageMagick v7.0.5
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
