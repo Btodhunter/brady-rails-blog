@@ -7,9 +7,13 @@ class CommentsController < ApplicationController
       @comment.author_name = current_user.first_name
     end
 
-    @comment.save
-
-    redirect_to article_path(@comment.article)
+    if @comment.save
+      flash[:notice] = "Comment Created!"
+      redirect_to article_path(@comment.article)
+    else
+      flash.alert = "Error creating comment!"
+      redirect_to article_path(@comment.article)
+    end
   end
 
   def comment_params

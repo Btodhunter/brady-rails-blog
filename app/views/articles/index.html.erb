@@ -10,12 +10,11 @@
       </div>
 
       <div class="text-center">
-        <%= link_to "READ MORE", article_path(article) %>
+        <%= link_to "READ MORE", article_path(article), class: "small" %>
       </div>
       <br>
     </div>
       <hr/>
   <% end %>
-  <%= link_to "Create New Article", new_article_path(), class: "btn btn-primary btn-block", role: "button" %>
+  <p><%= link_to "Create New Article", new_article_path(), class: "btn btn-primary btn-block", role: "button" %></p>
 </div>
-<br/>

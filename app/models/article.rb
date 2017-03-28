@@ -1,3 +1,16 @@
+# Table name: articles
+#
+# id                  :integer, primary key
+# title               :string
+# body                :text
+# user_id             :integer, foreign key
+# created_at          :datetime
+# updated_at          :datetime
+# image_file_name     :string
+# image_content_type  :string
+# image_file_size     :integer
+# image_updated_at    :datetime
+
 class Article < ApplicationRecord
   has_many :comments
   has_many :taggings
